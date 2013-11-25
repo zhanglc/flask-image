@@ -1,0 +1,62 @@
+@import "prefixer.less"; // CSS3 Prefixes
+
+// Primary Color Scheme
+// -------------------------
+@primaryColor: 				#72B626; // #72B626 #2DB2EA #87CEFA
+@primaryColorLight: 		lighten(@primaryColor, 5%);
+@primaryColorDark: 			darken(@primaryColor, 10%);
+
+@complementaryColor: 		#2d3032;
+@complementaryColorLight: 	lighten(@complementaryColor, 10%);
+@complementaryColorDark: 	darken(@complementaryColor, 5%);
+
+// Default
+// -------------------------
+// Deafult
+@btnBackground:						lighten(@complementaryColor, 20%);
+@btnBackgroundHighlight: 			lighten(@btnBackground, 10%);
+@btnBorder: 						darken(@btnBackground, 5%);
+// Primary
+@btnPrimaryBackground: 				@primaryColor;
+@btnPrimaryBackgroundHighlight: 	lighten(@btnPrimaryBackground, 5%);
+@btnPrimaryBorder: 					darken(@btnPrimaryBackground, 5%);
+
+// Links
+// -------------------------
+@linkColor: 				@primaryColor;
+@linkColorHover: 			@primaryColorDark;
+
+// Scaffolding
+// -------------------------
+@bodyBackground: 			#fff;
+@textColor: 				#666;
+
+// Typography
+// -------------------------
+@baseFontFamily: 			'Arial', sans-serif;
+@baseFontSize: 				12px;
+@baseHeadingColor: 			#333;
+
+// Navbar
+// -------------------------
+@navbarBackground: 			@complementaryColor;
+@navbarFontSize: 			13px;
+@navbarLinkColor: 			#fff;
+@navbarLinkHover: 			#fff;
+@navbarActiveBackground:	@primaryColor; // Accent color
+@navbarLinkHoverBackground: @primaryColor;
+@navbarActiveLink: 			#fff;
+@navbarButtonBackground:	#222; // Responsive Button
+
+
+// Footer
+// -------------------------
+@footerBackground: 			@complementaryColor;
+@footerTextColor: 			#aaa;
+
+.decorative-shadow {
+	.box-shadow(0px 0px 0px 4px #e6e6e6);
+}
+
+
+

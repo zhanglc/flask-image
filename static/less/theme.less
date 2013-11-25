@@ -1,0 +1,504 @@
+
+@import "variables.less";
+
+// Page
+// -------------------------
+body {
+	color: @textColor;
+	font-family: @baseFontFamily;
+	font-size: @baseFontSize;
+	background: @bodyBackground;
+}
+.wrapper {
+	margin-top: 40px;
+	margin-bottom: 25px;
+}
+h1, h2, h3, h4, h5, h6 {
+	color: @baseHeadingColor;
+}
+a {
+	color: @linkColor;
+	&:hover {
+		color: @linkColorHover;
+		text-decoration: none;
+	}
+}
+.well {
+	.border-radius(3px);
+	.box-shadow(inset 0 0 0);
+	background: #F4F5F7;
+}
+.label {
+	.border-radius(2px);
+	padding: 2px 6px;
+}
+.centered {
+	text-align: center;
+}
+// Navbar
+// -------------------------
+.navbar { // Navigation bar
+	margin-top: 20px ;
+	& .navbar-inner {
+		background-color: @navbarBackground;
+		background-image: none;
+		border: none;
+		.border-radius(0);
+	}
+}
+
+// Navigation Links
+.navbar .brand,
+.navbar .nav > li > a {
+	color: @navbarLinkColor;
+	font-size: @navbarFontSize;
+	text-shadow: none;
+	padding: 15px 30px;
+	background: url(../assets/navigation-divider.png) no-repeat right 50%;
+	&:hover {
+		color: @navbarLinkHover;
+		background: @navbarLinkHoverBackground;
+	}
+}
+// Navigation Active State
+.navbar .nav > .active > a,
+.navbar .nav > .active > a:hover,
+.navbar .nav > .active > a:focus {
+	color: @navbarActiveLink;
+	background-color: @navbarBackground;
+	box-shadow: none;
+	background: @navbarActiveBackground;
+}
+.navbar .brand:hover {
+	background-color: transparent;
+}
+// Responsive Navbar Button
+.navbar .btn-navbar {
+	margin-top: 8px;
+	color: @navbarLinkColor;
+	text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
+	background-color: @navbarButtonBackground;
+	background-image: none;
+	background-repeat: repeat-x;
+	border-color: #040404 #040404 black;
+	&:hover {
+		background-color: @navbarButtonBackground;
+	}
+}
+// Dropdown Menu Link
+.navbar .nav li.dropdown.open > .dropdown-toggle,
+.navbar .nav li.dropdown.active > .dropdown-toggle,
+.navbar .nav li.dropdown.open.active > .dropdown-toggle {
+	background-color: @navbarActiveBackground;
+	color: @navbarLinkColor;
+}
+// Discard background img when hover dropdown items
+.navbar .nav li.open > a {
+	background: none;
+}
+// Dropdown Menu Container
+.dropdown-menu {
+	margin-top: -1px;
+	.border-radius(0);
+	background-color: @navbarBackground;
+}
+// Dropdown Menu Link
+.dropdown-menu li > a {
+	color: @navbarLinkColor;
+}
+// Dropddown Menu Link Hover
+.dropdown-menu li > a:hover,
+.dropdown-menu li > a:focus,
+.dropdown-submenu:hover > a {
+	background-color: @navbarActiveBackground; 
+	background-image: none;
+}
+// Dropdown Menu Caret Down
+.navbar .nav li.dropdown > .dropdown-toggle .caret,
+.navbar .nav li.dropdown.open > .dropdown-toggle .caret,
+.navbar .nav li.dropdown.active > .dropdown-toggle .caret,
+.navbar .nav li.dropdown.open.active > .dropdown-toggle .caret {
+	border-top-color: @navbarLinkColor;
+}
+// Discard Dropdown Container Caret 
+.navbar .nav > li > .dropdown-menu::before,
+.navbar .nav > li > .dropdown-menu::after {
+	display: none;
+}
+
+// Home Page
+// -------------------------
+.info-column {
+	margin-bottom: 25px;
+}
+
+// Social Media Links
+// -------------------------
+.social-media {
+	list-style: none;
+	text-align: center;
+	margin-top: 25px;
+	margin-left: 0;
+	& li {
+		display: inline-block;
+		& a {
+			font-size: 30px;
+			&:hover {
+				.transition(all 0.3s);
+			}
+		}
+	}
+}
+
+header form {
+	margin-top: 20px;
+	text-align: right;
+}
+
+// Portfolio
+// -------------------------
+.portfolio {
+	padding-top: 5px; // prevents decorative shadow from falling into overflow:hidden
+	& li {
+		margin-left: 27px; // prevents decorative shadow from falling into overflow:hidden
+	}
+	& .thumbnail {
+		padding: 8px;
+		.box-shadow(0 0 0 5px rgba(0, 0, 0, 0.05));
+		&:hover {
+			.box-shadow(0 0 0 5px rgba(0, 0, 0, 0.1));
+		}
+		& a img {
+			width: 100%;
+			height: auto;
+		}
+	}
+}
+
+// Portfolio Filter Links
+// -------------------------
+.filter {
+	margin-left: 0;
+	margin-bottom: 40px;
+	padding: 0;
+	list-style: none;
+	& li {
+		display: inline-block;
+		margin-bottom: 15px;
+		position: relative;
+	}
+	& a {
+		margin-right: 5px;
+		padding: 6px 12px;
+		background: @complementaryColorLight;
+		color: #fff;
+		text-decoration: none;
+		.border-radius(2px);
+	}
+	& a:hover {
+		background: @primaryColor;
+	}
+	& span {
+		margin-right: 5px;
+	}
+	& .active {
+		background: @primaryColor;
+	}
+}
+
+// Pricing Table
+// -------------------------
+.pricing-table {
+	position: relative;
+	margin-left: 0;
+	padding: 10px;
+	list-style: none;
+	text-align: center;
+	border: 1px solid #ddd;
+	.border-radius(3px);
+	.box-shadow(0 0 0px 5px rgba(0,0,0,0.05));
+	& li {
+		padding-top: 5px;
+		padding-bottom: 5px;
+		border-bottom: 1px dashed #ddd;
+	}
+	& .footer {
+		border: 0;
+		margin-top: 18px;
+		margin-bottom: 8px;
+	}
+}
+
+// Ribbon for Featured Pricing Table
+// -------------------------
+.ribbon-wrapper {
+	width: 85px;
+	height: 88px;
+	overflow: hidden;
+	position: absolute;
+	top: -3px;
+	right: -3px;
+}
+.ribbon {
+	font: bold 15px Sans-Serif;
+	text-align: center;
+	color: darken(@primaryColor, 25%);
+	.text-shadow(0px 1px 0px rgba(255,255,255,0.5));
+	.transform(rotate(45deg));
+	position: relative;
+	padding: 7px 0;
+	left: -5px;
+	top: 15px;
+	width: 120px;
+	.gradient(@primaryColorLight, @primaryColorLight, @primaryColorDark);
+	.box-shadow(0px 0px 3px rgba(0,0,0,0.3));
+}
+
+// Blog
+// -------------------------
+.avatar { // user photo
+	margin-right: 8px;
+	margin-bottom: 10px;
+}
+.post-img { // featured image post
+	margin-bottom: 15px;
+}
+article {
+	margin-bottom: 50px;
+}
+article h3 { // heading link
+	margin-top: 0;
+	& a {
+		color: @complementaryColor;
+		&:hover{
+			color: @linkColor;
+		}
+	}
+}
+.comment-form { // For overflow:hidden does not cut off decorative shadow
+	padding: 3px;
+}
+
+// Widget carousel (sidebar)
+// -------------------------
+#widget-carousel .carousel-control {
+	width: 25px;
+	height: 25px;
+	top: 35%;
+	.border-radius(2px);
+	border: 0;
+	font-size: 20px;
+	font-weight: bold;
+	line-height: 22px;
+}
+
+// Form Inputs
+// -------------------------
+textarea,
+input[type="text"],
+input[type="password"],
+input[type="datetime"],
+input[type="datetime-local"],
+input[type="date"],
+input[type="month"],
+input[type="time"],
+input[type="week"],
+input[type="number"],
+input[type="email"],
+input[type="url"],
+input[type="search"],
+input[type="tel"],
+input[type="color"],
+.uneditable-input {
+	.decorative-shadow;
+}
+textarea:focus,
+input[type="text"]:focus,
+input[type="password"]:focus,
+input[type="datetime"]:focus,
+input[type="datetime-local"]:focus,
+input[type="date"]:focus,
+input[type="month"]:focus,
+input[type="time"]:focus,
+input[type="week"]:focus,
+input[type="number"]:focus,
+input[type="email"]:focus,
+input[type="url"]:focus,
+input[type="search"]:focus,
+input[type="tel"]:focus,
+input[type="color"]:focus,
+.uneditable-input:focus {
+	border-color: @primaryColor;
+	.decorative-shadow;
+}
+
+// Tag Cloud (for Footer and Sidebar)
+// -------------------------
+.tag-cloud {
+	margin-left: 0;
+	padding: 0;
+	list-style: none;
+	& li {
+		display: inline-block;
+		margin-bottom: 15px;
+		position: relative;
+	}
+	& a {
+		margin-right: 5px;
+		padding: 6px 12px;
+		border: 0;
+		background: @complementaryColorLight;
+		color: #fff;
+		text-decoration: none;
+		.border-radius(2px);
+	}
+	& a:hover {
+		background: @primaryColor;
+	}
+	& span {
+		margin-right: 5px;
+	}
+	& .active {
+		background: @primaryColor;
+	}
+}
+
+// Buttons
+// -------------------------
+.btn {
+	background-color: none;
+	background-image: none;
+	background: @btnBackground;
+	color: #fff;
+	cursor: pointer;
+	text-shadow: 0 -1px 0 darken(@btnBackground, 20%);
+	border: 1px solid @btnBorder;
+	.border-radius(2px);
+	.decorative-shadow;
+	&:hover {
+		color: #fff;
+		background: @btnBackgroundHighlight;
+		.transition(all 0.1s ease-in-out);
+		border-color: lighten(@btnBorder, 5%);
+	}
+
+	// If you need more buttons copy/paste this example:
+	&.btn-primary {
+		background: @btnPrimaryBackground;
+		text-shadow: 0 -1px 0 darken(@btnPrimaryBackground, 20%);
+		border: 1px solid @btnPrimaryBorder;
+		&:hover {
+			background: @btnPrimaryBackgroundHighlight;
+			border: 1px solid lighten(@btnPrimaryBorder, 5%);
+		}
+	}
+}
+
+// Footer
+// -------------------------
+footer {
+	padding-top: 15px;
+	color: @footerTextColor;
+	border-top: 5px solid @complementaryColorDark;
+	background: @complementaryColor;
+	& h4 {
+		color: #fff;
+		font-size: 14px;
+	}
+	& a {
+		color: @primaryColor;
+		border-bottom: 1px dotted @footerTextColor;
+	}
+	& a:hover {
+		color: #fff;
+	}
+	& .bottom-line {
+		width: auto;
+		padding: 20px;
+		background: @complementaryColorDark;
+		& p {
+			margin: 0;
+		}
+	}
+	hr {
+		border-top: 0;
+		border-bottom: 1px solid @complementaryColorLight;
+	}
+}
+
+.footer-form {
+	& .btn {
+		border: 0;
+		.text-shadow(0 0 0 transparent); // discard text shadow
+		.box-shadow(0 0 0 0 transparent); // discard input shadow
+		&:hover {
+			border: 0;
+		}
+	}
+	& fieldset input[type="text"] {
+		border: 1px solid #000;
+		.box-shadow(0 0 0 0 transparent); // discard input shadow
+	}
+}
+
+
+// Media Queries
+// -------------------------
+@media (min-width: 1200px) {
+	input.flexible {
+		width: 73%;
+	}
+}
+@media (max-width: 1199px) {
+	input.flexible {
+		width: 70%;
+	}
+}
+
+@media (max-width: 979px) {
+	.navbar .nav-collapse .nav > li > a,
+	.navbar .nav-collapse .dropdown-menu a {
+		color: @navbarLinkColor;
+	}
+	.navbar .nav > li > a {
+		background: none; // discard navbar divider
+	}
+	.navbar .nav-collapse .nav > li > a:hover,
+	.navbar .nav-collapse .dropdown-menu a:hover {
+		background-color: @navbarBackground;
+	}
+	.info-box {
+		text-align: center;
+	}
+	input.flexible {
+		width: 50%;
+	}
+}
+
+@media (min-width: 768px) and (max-width: 979px) {
+	.footer-form input[type="text"] {
+		width: 90%;
+	}
+}
+
+@media (max-width: 767px) {
+	header, header form {
+		text-align: center;
+	}
+	.social-media {
+		margin: 0;
+	}
+	footer {
+		margin-left: -20px;
+		margin-right: -20px;
+		padding-left: 20px;
+		padding-right: 20px;
+		& .bottom-line {
+			margin-left: -20px;
+			margin-right: -20px;
+		}
+	}
+}
+
+
+

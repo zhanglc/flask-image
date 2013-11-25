@@ -1,0 +1,117 @@
+{% extends "layout.html" %}
+{% block head %}
+        {{render_head(blog.title|truncate(50),blog.tags,blog.title)}}
+{% endblock%}
+{% block body %}
+<!-- blog container -->
+			<div class="span9">
+
+				<!-- first article -->
+				<article class="row">
+					<!-- author meta data -->
+					<div class="span2 hidden-phone">
+						<img class="img-rounded pull-left avatar" src="{{ url_for('static', filename='assets/user-1.jpg') }}" alt="">
+						<strong>Written by:</strong>
+						<p>admin</p>
+						<span class="label"><small>Editor in Chief</small></span>
+						<hr>
+						<!-- post meta data -->
+						<p>{{blog.createTime | strftime}}</p>
+						<p>Post Tags:</p>
+						<ul class="post-tags">
+                            {% for tag in blog.tags.split(',') %}
+							<li><a href="/tag/{{tag|trim}}">{{tag}}</a></li>
+                            {% endfor %}
+						</ul>
+					</div>
+
+					<!-- the post -->
+					<div class="span7">
+						<h3><a href="{{blog.type}}-{{blog.id}}.html"><i class="icon icon-file"></i>  {{blog.title|truncate(50)}}</a></h3>
+						<p>
+                            {{blog.title}}
+						</p>
+                        {% for img in blog.content.split('&&&') %}
+                        <p>
+                            <img class="media-object img-rounded lazy" src="{{ url_for('static', filename='assets/loading.gif') }}" data-src='{{img}}' alt="{{blog.tags}}"/>
+                        </p>
+                        {% endfor%}
+
+
+						<!--&lt;!&ndash; navigate to prev/next post &ndash;&gt;-->
+						<!--<nav class="clearfix">-->
+							<!--<a href="#" class="btn pull-left">Prev</a>-->
+							<!--<a href="#" class="btn pull-right">Next</a>-->
+							<!--<p class="centered">Want to read more?</p>-->
+						<!--</nav>-->
+
+						<!--&lt;!&ndash; the comments &ndash;&gt;-->
+						<!--<hr>-->
+						<!--<h4>Latest Comments:</h4>-->
+						<!--&lt;!&ndash; single comment &ndash;&gt;-->
+						<!--<div class="media">-->
+							<!--<a class="pull-left" href="#">-->
+								<!--<img class="media-object img-rounded" src="assets/user-2.jpg">-->
+							<!--</a>-->
+							<!--<div class="media-body">-->
+								<!--<h5 class="media-heading"><a href="#">Calisto MT</a></h5>-->
+								<!--Nice article. It particularly rang true with working on WordPress all day and night (my wife is thinking of having me committed) and having a way to take a break. I keep an acoustic guitar within reach at my desk and just by grabbing it when my brain starts (and my playing has gotten a lot better).-->
+								<!--<br>-->
+								<!--<a href="#">Dec, 12, 2012</a> - <a href="#">Reply</a> - <a href="#"><i class="icon icon-chevron-up"></i> Rate Up</a> - <a href="#"><i class="icon icon-chevron-down"></i> Rate Down</a>-->
+							<!--</div>-->
+						<!--</div>-->
+
+						<!--&lt;!&ndash; comment with nested comment&ndash;&gt;-->
+						<!--<div class="media">-->
+							<!--<a class="pull-left" href="#">-->
+								<!--<img class="media-object img-rounded" src="assets/user-3.jpg">-->
+							<!--</a>-->
+							<!--<div class="media-body">-->
+								<!--<h5 class="media-heading"><a href="#">Lucida Sans</a></h5>-->
+								<!--I love what you said: “The WordPress ecosystem is vast, and there is room for lots of different specialties.” It’s intimidating to break into the WordPress community at first, but I’m finding that EVERYBODY has something to contribute (and it doesn’t have to be code).-->
+								<!--<br>-->
+								<!--<a href="#">Dec, 12, 2012</a> - <a href="#">Reply</a> - <a href="#"><i class="icon icon-chevron-up"></i> Rate Up</a> - <a href="#"><i class="icon icon-chevron-down"></i> Rate Down</a>-->
+
+								<!--&lt;!&ndash; nested comment &ndash;&gt;-->
+								<!--<div class="media">-->
+									<!--<a class="pull-left" href="#">-->
+										<!--<img class="media-object img-rounded" src="assets/user-1.jpg">-->
+									<!--</a>-->
+									<!--<div class="media-body">-->
+										<!--<h5 class="media-heading"><a href="#">Cooper Black</a> <span>Post Author</span></h5>-->
+										<!--Excellent in-depth piece on the WordPress ecosystem and community! I think this deserves a periodic re-read if I ever need to recapture the excitement I have right now.-->
+										<!--<br>-->
+										<!--<a href="#">Dec, 12, 2012</a> - <a href="#">Reply</a> - <a href="#"><i class="icon icon-chevron-up"></i> Rate Up</a> - <a href="#"><i class="icon icon-chevron-down"></i> Rate Down</a>-->
+									<!--</div>-->
+								<!--</div>&lt;!&ndash; end of nested comment &ndash;&gt;-->
+							<!--</div>&lt;!&ndash; end of parent .media-body &ndash;&gt;-->
+						<!--</div>&lt;!&ndash; end of parent .media &ndash;&gt;-->
+
+						<!--<hr>-->
+
+						<!--&lt;!&ndash; coment form &ndash;&gt;-->
+						<!--<button type="button" class="btn" data-toggle="collapse" data-target=".comment-form">Write your comment</button>-->
+						<!--<div class="comment-form collapse in">-->
+							<!--<form class="form">-->
+								<!--<fieldset>-->
+									<!--<legend>Let your voice be heard</legend>-->
+									<!--<label for="user-name">Name:</label>-->
+									<!--<input class="span4" type="text" name="user-name" placeholder="">-->
+									<!--<label for="user-email">Email:</label>-->
+									<!--<input class="span4" type="text" name="user-email" placeholder="">-->
+									<!--<label for="user-url">Website (Optional):</label>-->
+									<!--<input class="span4" type="text" name="user-url" placeholder="">-->
+									<!--<label for="user-comment">Your comment:</label>-->
+									<!--<textarea name="user-comment" class="span6" cols="30" rows="10"></textarea>-->
+									<!--<p></p>-->
+									<!--<button type="submit" class="btn">Submit comment</button>-->
+								<!--</fieldset>-->
+							<!--</form>-->
+						<!--</div>-->
+
+					</div><!-- /end of post -->
+				</article><!-- /end of article -->
+                {{render_prev_next(prev.id,next.id)}}
+			</div><!-- /.span9 blog container-->
+<script type="text/javascript" data-pin-hover="true" src="//assets.pinterest.com/js/pinit.js"></script>
+{% endblock%}

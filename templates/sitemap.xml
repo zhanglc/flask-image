@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+    <url>
+        <loc>http://www.amztop10.com/</loc>
+        <changefreq>hourly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>http://www.amztop10.com/landscape/</loc>
+        <changefreq>hourly</changefreq>
+        <priority>0.7</priority>
+    </url>
+    <url>
+        <loc>http://www.amztop10.com/fashion/</loc>
+        <changefreq>hourly</changefreq>
+        <priority>0.7</priority>
+    </url>
+    <url>
+        <loc>http://www.amztop10.com/design/</loc>
+        <changefreq>hourly</changefreq>
+        <priority>0.7</priority>
+    </url>
+    {% for page in pages %}
+    <url>
+        <loc>http://www.amztop10.com{{page[0]|safe}}</loc>
+        <lastmod>{{page[1]}}</lastmod>
+    </url>
+    {% endfor %}
+</urlset>

@@ -1,0 +1,40 @@
+{% extends "layout.html" %}
+{% block head%}
+        {{render_head(type or tag_name,'','')}}
+{% endblock%}
+{% block body %}
+<!-- blog container -->
+
+
+                {% for result in results %}
+				<!--  articles -->
+				<article class="row">
+					<!-- post meta data -->
+					<div class="span2 hidden-phone">
+						<!-- author meta data -->
+						<img class="img-rounded pull-left avatar" src="{{ url_for('static', filename='assets/user-1.jpg') }}" alt="">
+						<strong>Written by:</strong>
+						<p>admin</p>
+						<span class="label"><small>Editor in Chief</small></span>
+						<hr>
+						<!-- September 12, 2019 post meta data -->
+						<p>{{result.createTime | strftime}}</p>
+						<p>Post Tags:</p>
+						<ul class="post-tags">
+                            {% for tag in result.tags.split(',')[0:17] %}
+							<li><a href="/tag/{{tag|trim}}">{{tag}}</a></li>
+                            {% endfor %}
+						</ul>
+					</div><!-- end of post meta data-->
+					<!-- the post -->
+					<div class="span7">
+						<h3><a href="/{{result.type}}-{{result.id}}.html"><i class="icon icon-file"></i> {{result.title|truncate(50)}}</a></h3>
+						<a href="/{{result.type}}-{{result.id}}.html"><img class="post-img lazy" src="{{ url_for('static', filename='assets/loading.gif') }}" data-src="{{result.content.split('&&&')[0]}}" alt="{{result.tags}}"></a>
+						<p>{{result.title}}</p>
+						<a class="btn btn-primary" href="/{{result.type}}-{{result.id}}.html">Continue reading &raquo;</a>
+					</div><!-- /end of post -->
+				</article><!-- /end of article -->
+                {% endfor %}
+                {{render_pages(pagination)}}
+
+{% endblock%}
